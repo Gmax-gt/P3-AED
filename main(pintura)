@@ -1,0 +1,55 @@
+from pintura import *
+import random
+
+def validar():
+    n = int(input("Ingrese la cantidad de pinturas "))
+    while n<=0:
+        n = int(input("Ingrese un nro valido de cantidad de pinturas "))
+    return n
+
+def cargar(pinturas):
+    pinturas.clear()
+    for i in len(pinturas):
+        codigo=random.randint(0,99999)
+        tipo= random.randint(1,10)
+        cantidad = random.randint(1,100)
+        precio= random.uniform (500,7500)
+
+        pintura = Pintura(codigo,tipo,cantidad,precio)
+        pinturas.append(pintura)
+
+def mostrar(pinturas):
+    for pintura in pinturas:
+        print (pintura)
+
+def principal():
+
+    opcion = 0
+    pinturas = []
+    while opcion!=5:
+        print("""
+            MENU
+        1- Cargar
+        2- Mostrar
+        3- Tipo
+        4- Buscar
+        5- Salir
+        """)
+        opcion= int(input("Ingresar opcion: "))
+        if opcion == 1:
+            n=validar()
+            cargar(pintura)
+        elif opcion == 2:
+            mostrar(pintura)
+        elif opcion == 3:
+            pass
+        elif opcion == 4:
+            pass
+        elif opcion == 5:
+            break
+    print ("FIN.")
+
+
+
+if __name__ == '__main__':
+    principal()
